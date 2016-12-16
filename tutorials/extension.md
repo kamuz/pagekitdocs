@@ -2,14 +2,13 @@
 
 ## Содержимое
 
-
 * [Использование модулей](#extending-pagekit-using-modules)
 * [Роутинг и контроллеры](#routing-and-controller)
 * [Рендеринг видов и конфигурация модуля](#view-rendering-and-module-config)
 * [Использование Vue.js](#using-vue-js-in-a-pagekit-extension)
 * [Итоговый пример](#the-completed-example)
 
-**Внимание!** Весь код примера [доступен на Github](https://github.com/pagekit/example-todo).
+<div class="uk-badge">Внимание</div> Весь код примера [доступен на Github](https://github.com/pagekit/example-todo).
 
 <h2 id="extending-pagekit-using-modules">Использование модулей</h2>
 
