@@ -6,7 +6,7 @@
 
 Этот файл нужно править (изменять на русские слова) тогда, когда уже полностью готов перевод необходимого материала.
 
-- Начало работы
+## Начало работы
 
 * [Введение](getting-started/introduction.md)
 * [Требования](getting-started/requirements.md)
@@ -16,7 +16,7 @@
 * [Server Configuration](getting-started/server-configuration.md)
 * [Получение помощи](getting-started/getting-help.md)
 
-- Пользовательский интерфейс
+## Пользовательский интерфейс
 
 * [Dashboard](user-interface/dashboard.md)
 * [Site](user-interface/site.md)
@@ -27,7 +27,7 @@
 * [Editor](user-interface/editor.md)
 * [Finder](user-interface/finder.md)
 
-- Обучающие руководства
+## Обучающие руководства
 
 * [Расширение](tutorials/extension.md)
 * [Theme](tutorials/theme.md)
@@ -35,7 +35,7 @@
 * [Translate Pagekit](tutorials/translation.md)
 * [Marketplace](tutorials/marketplace.md)
 
-- Разработчикам
+## Разработчикам
 
 * [Файловая структура](developer/file-structure.md)
 * [Приложение](developer/application.md)
@@ -55,7 +55,7 @@
 * [CLI](developer/cli.md)
 * [Pagekit source](developer/source.md)
 
-- Исправление проблем
+## Исправление проблем
 
 * [System Information](troubleshooting/system-information.md)
 * [Debug Mode](troubleshooting/debug-mode.md)
