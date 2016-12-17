@@ -1,46 +1,64 @@
-## Как следует наполнять документацию
+# Документация Pagekit
 
-Очень важно чтобы переводя документацию вы соблюдали определённые правила форматирования. Я обратил внимание что на Pagekit этого не придерживаются, но мы будем.
+Это документация для [Pagekit](https://pagekit.com) - это модульная open source CMS созданная с использованием современных технологий.
 
-Итак, для начала можно взять уже готовую страницу из официального репозитория с документацией. Создаём новый документ и начинаем переводить.
+Чтобы помочь с переводом можно делать Pull Requests с вашими изменениями, предварительно ознакомившись с [этой инструкцией](instruction.md). Связатся со мной для уточнения деталей можно в Telegram (по номеру _38099061740) или в [VK](https://vk.com/vladimir_kamuz).
 
-Но есть несколько важных моментов и отличий на которые стоит обратить внимание:
+Этот файл нужно править (изменять на русские слова) тогда, когда уже полностью готов перевод необходимого материала.
 
-### Вставка кода
+- Начало работы
 
-Для вставки инлайнового кода, тоесть тот который идет внутри параграфа, списка или в таблице нужно использовать обратную кавычку, например `$var` или `console.log("test")`.
+* [Введение](getting-started/introduction.md)
+* [Требования](getting-started/requirements.md)
+* [Установка](getting-started/installation.md)
+* [Обновление](getting-started/updating.md)
+* [Configuration File](getting-started/configuration-file.md)
+* [Server Configuration](getting-started/server-configuration.md)
+* [Получение помощи](getting-started/getting-help.md)
 
-Для блоков кода стоит использовать три обратных кавычек в начале и три в конце, при этом нужно указывать язык, чтобы библиотека [highlightjs.org](https://highlightjs.org/) правильно определяла синтаксис, например.
+- Пользовательский интерфейс
 
-```php
-$name = value
-```
+* [Dashboard](user-interface/dashboard.md)
+* [Site](user-interface/site.md)
+* [Blog](user-interface/blog.md)
+* [Users](user-interface/users.md)
+* [System](user-interface/system.md)
+* [Marketplace](user-interface/marketplace.md)
+* [Editor](user-interface/editor.md)
+* [Finder](user-interface/finder.md)
 
-Таким образом у вас также будет правильно подсвечиватся синтаксис в вашем редакторе кода, например я использую Sublime Text 3 + MarkdownHighlighting.
+- Обучающие руководства
 
-### Пути, файлы, папки
+* [Расширение](tutorials/extension.md)
+* [Theme](tutorials/theme.md)
+* [Dashboard Widgets](tutorials/dashboard-widgets.md)
+* [Translate Pagekit](tutorials/translation.md)
+* [Marketplace](tutorials/marketplace.md)
 
-Это всё можно назвать путями и они записываются курсивом, тоесть файл *index.php* или папка *packages/*. Если указываем папку, то нужно ставить слэш в конце - это будет выделять файлы без расширения от папок.
+- Разработчикам
 
-Перед каждым блоком кода нужно указывать полный путь от корня проекта, например:
+* [Файловая структура](developer/file-structure.md)
+* [Приложение](developer/application.md)
+* [Пакеты](developer/packages.md)
+* [Modules](developer/modules.md)
+* [Events](developer/events.md)
+* [Routing](developer/routing.md)
+* [Response](developer/response.md)
+* [Users & Permissions](developer/users-permissions.md)
+* [Theme](developer/theme.md)
+* [Views & Templating](developer/views-templating.md)
+* [Vue & Webpack](developer/vuejs-and-webpack.md)
+* [Widgets](developer/widgets.md)
+* [Database](developer/database.md)
+* [ORM](developer/orm.md)
+* [Translation](developer/translation.md)
+* [CLI](developer/cli.md)
+* [Pagekit source](developer/source.md)
 
-*packages/pagekit/blog/index.php*
+- Исправление проблем
 
-```php
-<?php
-
-use Pagekit\Blog\Content\ReadmorePlugin;
-use Pagekit\Blog\Event\PostListener;
-use Pagekit\Blog\Event\RouteListener;
-
-return [
-
-    'name' => 'blog',
-///...
-```
-
-Что в phpStorm, что в Sublime есть функция копирования в буфер полного пути к файл из файловой системы.
-
-Для Sublime нужно открыть файл, вызвать диалогое меню и выбрать команду **Copy File Path**. Мы получаем к примеру *D:\xampp\htdocs\pagekit.loc\packages\pagekit\blog\index.php*, после чего убираем лишнее и используя мультикурсор (<kbd>Ctrl</kbd> + <kbd>D</kbd>) заменяем обратные слэши на обычные.
-
-Если нужно показать навигацию по системе Pagekit, также стоит использовать курсив, например *Сайт / Виджеты / Добавить виджет*.
+* [System Information](troubleshooting/system-information.md)
+* [Debug Mode](troubleshooting/debug-mode.md)
+* [Permissions](troubleshooting/permissions.md)
+* [Not Found](troubleshooting/not-found.md)
+* [Server Error](troubleshooting/server-error.md)
