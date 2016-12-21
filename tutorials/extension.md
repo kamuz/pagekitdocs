@@ -10,7 +10,7 @@
 * [Использование Vue.js](#using-vue-js-in-a-pagekit-extension)
 * [Итоговый пример](#the-completed-example)
 
-<div class="uk-badge">Внимание</div> Весь код примера [доступен на Github](https://github.com/pagekit/example-todo).
+<span class="uk-badge">Внимание</span> Весь код примера [доступен на Github](https://github.com/pagekit/example-todo).
 
 <h2 id="extending-pagekit-using-modules">Использование модулей</h2>
 
