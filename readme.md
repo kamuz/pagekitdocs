@@ -12,7 +12,7 @@
 * [Требования](getting-started/requirements.md)
 * [Установка](getting-started/installation.md)
 * [Обновление](getting-started/updating.md)
-* [Configuration File](getting-started/configuration-file.md)
+* [Файл конфигурации](getting-started/configuration-file.md)
 * [Server Configuration](getting-started/server-configuration.md)
 * [Получение помощи](getting-started/getting-help.md)
 
