@@ -13,7 +13,7 @@
 * [Установка](getting-started/installation.md)
 * [Обновление](getting-started/updating.md)
 * [Файл конфигурации](getting-started/configuration-file.md)
-* [Server Configuration](getting-started/server-configuration.md)
+* [Кофигурация сервера](getting-started/server-configuration.md)
 * [Получение помощи](getting-started/getting-help.md)
 
 ## Пользовательский интерфейс
