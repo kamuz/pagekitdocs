@@ -16,33 +16,44 @@
 
 ## Структура
 
-Let's take a look at some of the central files and folders that you will deal with when developing your own theme.
+Давайте взглянем на некоторые основные файлы и папки с которыми вы будете иметь дело при разработке собственной темы.
 
 ```txt
-/css
-  theme.css               // skeleton css with pre-defined classes
-/js
-  theme.js                // empty file for your scripts
-/views
-  template.php            // renders the theme's output; logo, menu, main content, sidebar and footer positions are available by default
-composer.json             // package definition so that Pagekit recognizes the theme
-image.jpg                 // preview screenshot
-index.php                 // the central theme configuration
-CHANGELOG.md              // changes of current and previous versions
-README.md                 // contains basic information
+theme-name/
+├─ css/
+│  └─ theme.css
+├─ js/
+│  └─ theme.js
+├─ views
+│  └─ template.php
+├─ composer.json
+├─ image.jpg
+├─ index.php
+├─ CHANGELOG.md
+└─ README.md
 ```
 
-### Rename your theme
+* *css/theme.css* - основной CSS файл с предопределёнными классами
+* *js/theme.js* - пустой JS файл для ваших скриптов
+* *views/template.php* - рендерит вывод темы; позиции лого, меню, основного контейнера, сайдбара и футера доступны по умолчанию
+* *composer.json* - определение темы
+* *image.jpg* - скриншот темы
+* *index.php* - основной конфиг темы
+* *CHANGELOG.md* - логи изменений
+* *README.md* - описание темы
 
-If you simply change the files of Hello theme, any Marketplace updates to the theme will overwrite your changes. Also, you will probably want to give the theme your own custom name. If you decide to upload the theme to the marketplace, you even need to name it differently. This requires three simple steps:
+### Переименование вашей темы
 
-1. Copy all files from `packages/pagekit/theme-hello` to `packages/your-name/your-theme` (you will need to create these folders).
-2. Open `composer.json` and replace `"name": "pagekit/theme-hello",` with `"name": "your-name/your-theme"`. ALso change `"title": "Hello"` to `"title": "Your theme"`.
-3. Open `index.php` and replace `'name' => 'theme-hello'` with `'name' => 'your-theme'`.
+Если вы просто измените файлы темы Hello, то любые обновления в Marketplace для этой темы перезапишет ваши собственные изменения. Кроме этого, вы вероятно захотите указать для темы собственное название. Если вы решите загрузить собственную тему на Marketplace, то вам также понадобится назвать вашу тему как то иначе. Для этого потребуется три простых шага:
 
-Out of simplicity, the rest of the tutorial will still call it `theme-hello` in the examples.
+1. Скопировать все файлы с *packages/pagekit/theme-hello* в *packages/your-name/your-theme* (вам нужно будет создать данную папку)
+2. Открыть файл *composer.json* и заменить `"name": "pagekit/theme-hello"` на `"name": "your-name/your-theme"`. А также изменить `"title": "Hello"` на `"title": "Your theme"`.
+3. Открыть *index.php* и заменить `'name' => 'theme-hello'` на `'name' => 'your-theme'`.
+
+Для простоты, дальше в примерах всё ещё будет использоваться `theme-hello`.
 
 ### CSS
+
 Hello theme doesn't contain any styles. The included `css/theme.css` file lists all CSS classes that are rendered by the Pagekit core extensions without additional styling. You can add your own CSS to these classes.
 
 The Pagekit admin interface and the Pagekit default themes are built with the [UIkit front-end framework](http://getuikit.com/). So you might want to consider using it for your project as well. In the following example we will be building our theme using UIkit. If you use another framework or no framework at all, the basic approach of including CSS is similar.
