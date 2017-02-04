@@ -4,7 +4,7 @@
 
 ## Краткий обзор
 
-```html
+```txt
 pagekit/
 ├─ app/
 │  ├─ assets/

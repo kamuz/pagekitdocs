@@ -54,11 +54,11 @@ theme-name/
 
 ### CSS
 
-Hello theme doesn't contain any styles. The included `css/theme.css` file lists all CSS classes that are rendered by the Pagekit core extensions without additional styling. You can add your own CSS to these classes.
+Тема Hello не содержит каких либо стилей. Она включает файл *css/theme.css* со списком всех CSS классов, которые рендерят расширения ядра Pagekit без дополнительной стилизации. Вы можете добавить свой собственный CSS к этим классам.
 
-The Pagekit admin interface and the Pagekit default themes are built with the [UIkit front-end framework](http://getuikit.com/). So you might want to consider using it for your project as well. In the following example we will be building our theme using UIkit. If you use another framework or no framework at all, the basic approach of including CSS is similar.
+Админка Pagekit и дефолтная тема Pagekit созданны с использованием [фронт-энд фреймворка UIkit](http://getuikit.com/), поэтому вы можете использовать и его для своих проектов. В дальнейших примерах, мы будем создавать нашу собственную тема с использованием UIkit. Если вы будете использовать другой фреймворк или не будете использовать какой-либо фреймворк вообще, основные принципы, включая CSS будет похож.
 
-There are many possible ways to set up your theme's file structure. We can recommend two approaches here. One is the "classic" way of including plain CSS. The second one is more complex to set up initially, but allows for far more flexibility.
+Есть множество всевозможных способов настроить файловою структуру вашей темы. Мы можем рекомендовать два подхода. Одним из них является простое подключение CSS. Второй является более сложным для установки на начальном этапе, но предоставляет гораздо больше гибкости.
 
 #### The simple way: Include plain CSS files
 
