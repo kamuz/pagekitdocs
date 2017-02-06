@@ -56,36 +56,30 @@ theme-name/
 
 Тема Hello не содержит каких либо стилей. Она включает файл *css/theme.css* со списком всех CSS классов, которые рендерят расширения ядра Pagekit без дополнительной стилизации. Вы можете добавить свой собственный CSS к этим классам.
 
-Админка Pagekit и дефолтная тема Pagekit созданны с использованием [фронт-энд фреймворка UIkit](http://getuikit.com/), поэтому вы можете использовать и его для своих проектов. В дальнейших примерах, мы будем создавать нашу собственную тема с использованием UIkit. Если вы будете использовать другой фреймворк или не будете использовать какой-либо фреймворк вообще, основные принципы, включая CSS будет похож.
+Админка Pagekit и дефолтная тема Pagekit созданны с использованием [фронт-энд фреймворка UIkit](http://getuikit.com/), поэтому вы можете использовать и его для своих проектов. В дальнейших примерах, мы будем создавать нашу собственную тема с использованием UIkit. Если вы будете использовать другой фреймворк или не будете использовать какой-либо фреймворк вообще, основные принципы подключения CSS будут похожи.
 
-Есть множество всевозможных способов настроить файловою структуру вашей темы. Мы можем рекомендовать два подхода. Одним из них является простое подключение CSS. Второй является более сложным для установки на начальном этапе, но предоставляет гораздо больше гибкости.
+Есть множество всевозможных способов настроить файловою структуру вашей темы. Мы можем рекомендовать два подхода. Первый - это простое подключение CSS файлов. Второй - более сложный, но предоставляет гораздо больше гибкости.
 
-#### The simple way: Include plain CSS files
+#### Простой способ: Подключение CSS файлов
 
-Go to the [UIkit website](http://getuikit.com/), download the latest release and unpack it. UIkit comes with three themes: Default, Gradient and Almost Flat. To include the Default theme, copy the `css/uikit.min.css` file from the UIkit package and paste it into the `theme-hello/css/` folder of your theme.
+Перейдите на [веб-сайт UIkit](http://getuikit.com/), скачайте и распакуйте последнюю версию фреймворка. UIkit идёт с тремя темами: Default, Gradient и Almost Flat. Для подключения дефолной темы (Default), скопируйте файл *css/uikit.min.css* из архива UIkit и переместите в папку *theme-hello/css/* вашей темы.
 
-To make sure the file is loaded by Pagekit, open the main layout file of the theme which is located at `theme-hello/views/template.php`.
+Чтобы убедиться что файл Pagekit загружается, откройте основной файл макета темы *theme-hello/views/template.php*
 
-In the `<head>` section of this layout file, we see that one CSS file is included already.
+Внутри `<head>` файла макета, мы видим что один CSS файл уже подключён.
 
-```
+```php
 <?php $view->style('theme', 'theme:css/theme.css') ?>
 ```
 
-Now add another line to add the UIkit CSS. Make sure to add it **above** the line that is already present, so that it looks as follows.
+Теперь добавьте еще одну строку, чтобы подключить CSS файл UIKit. Вам нужно подключить его (*css/uikit.min.css*) выше основного файла CSS.
 
-```
+```php
 <?php $view->style('custom-uikit', 'theme:css/uikit.min.css') ?>
 <?php $view->style('theme', 'theme:css/theme.css') ?>
 ```
 
-That's it, your theme now contains UIkit's CSS. To add your own CSS rules, simply edit `theme-hello/css/theme.css`.
-
-<figure class="uk-thumbnail">
-    <img src="assets/tutorial-theme-basic-css.png" alt="Default UIkit styling">
-    <figcaption class="uk-thumbnail-caption">Adding the CSS from UIkit will add default styling to the rendered markup. To actually make it pretty, we also need to add some classes to the markup, customize the default UIkit style and maybe add our own CSS styling</figcaption>
-</figure>
-
+Теперь ваша тема содержит CSS UIkit. Для добавления ваших собственных CSS правил, вам нужно отредактировать файл *theme-hello/css/theme.css*.
 
 #### The advanced way: Setup with Gulp and LESS
 
