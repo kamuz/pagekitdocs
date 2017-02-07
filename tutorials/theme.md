@@ -81,15 +81,15 @@ theme-name/
 
 Теперь ваша тема содержит CSS UIkit. Для добавления ваших собственных CSS правил, вам нужно отредактировать файл *theme-hello/css/theme.css*.
 
-#### The advanced way: Setup with Gulp and LESS
+#### Продвинутый способ: Использование Gulp и LESS
 
-In the previous section we have seen how easy it is to add plain CSS files to your theme. If you have experience with building websites, you are probably familiar with more flexible ways of styling your content. A good example for this is using a CSS pre-processor like [LESS](http://lesscss.org/). This allows you to use things such as variables, which make your code easier to read and manage.
+В предыдущем разделе мы увидели, как легко можно добавить простые CSS файлы к вашей теме. Если у вас есть опыт создания веб-сайтов, то вы возможно знакомы с более гибкими способами стилизации вашего контента, например применение CSS препроцессора, такого как [LESS] (http://lesscss.org/). Это позволяет использовать такие вещи, как переменные, которые делают ваш код более удобным для чтения и управления.
 
-When using UIkit, this has the great advantage that you can simply modify a variable to apply global changes, for example altering the primary theme color.
+При использовании UIKit, это даёт вам большое преимущество, потому что вы можете просто изменить переменную, чтобы применить глобальные изменения, например, изменяя основной цвет темы.
 
-To comfortably work with the LESS pre-processor, you should have a few tools installed and available on your command line: *npm*, *gulp* and *bower*. If you do not have them installed, do a quick Google search, there are plenty of tutorials available online.
+Чтобы работать комфортно с предпроцессором LESS, вам необходимо установить несколько инструментов, которыми можно работать через командную строку: `npm`, `gulp` и `bower`. Если они у вас ещё не установленны, тогда вам следует это сделать используя Google, чтобы найти необходимые учебные пособия.
 
-There are a number of possible file structure setups. In the following passage we suggest the structure that is also used for the official Pagekit themes. While it might look like many steps when you create a theme for the first time, in our experience this setup allows for well structured code, easy UIkit customizations and a comfortable way to keep UIkit up to date using Bower.
+Имеется множество возможных вариантов огранизовать файловую структуру. Мы предлагаем структуру, которая также используется для официальных тем Pagekit. В первый раз это создаёт впечатление, что вы выполняете много шагов при создании темы, но на практике это позволяет хорошо структурировать ваш код, легко кастомизировать и поддерживать UIKit в актуальном состоянии.
 
 #### Step 1
 
