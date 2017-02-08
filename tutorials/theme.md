@@ -91,27 +91,31 @@ theme-name/
 
 Имеется множество возможных вариантов огранизовать файловую структуру. Мы предлагаем структуру, которая также используется для официальных тем Pagekit. В первый раз это создаёт впечатление, что вы выполняете много шагов при создании темы, но на практике это позволяет хорошо структурировать ваш код, легко кастомизировать и поддерживать UIKit в актуальном состоянии.
 
-#### Step 1
+#### Шаг №1
 
-In your theme, create the new files `package.json`, `bower.json`, `.bowerrc`, `gulpfile.js` and `less/theme.less`. Paste the following contents into these files. If you have named your theme differently, replace any occurences of the string `theme-hello` with your theme name.
+В вашей теме, создайте новые файлы *package.json*, *bower.json*, *.bowerrc*, *gulpfile.js* и *less/theme.less*. Вставьте следующий конент в ваши файлы. Если ваша тема названа по другому, замените любый вхождения (occurences) строки `theme-hello` на название вашей темы.
 
-`package.json`. This file defines all JavaScript dependencies that are installed when running `npm install` and includes several npm packages that we will we use, for example when compiling LESS to CSS:
+*package.json*. Этот файл определяет все JavaScript зависимости, которые будут устанавливаться во время запуска команды `npm install` и подключает несколько npm пакетов, которые мы будем использовать, например при компиляции LESS в CSS:
 
-```
+*package.json*
+
+```json
 {
-    "name": "theme-hello",
+	"name": "theme-hello",
 	"devDependencies": {
-	     "bower": "*",
-	     "gulp": "*",
-	     "gulp-less": "*",
-	     "gulp-rename": "*"
+		"bower": "*",
+		"gulp": "*",
+		"gulp-less": "*",
+		"gulp-rename": "*"
 	 }
 }
 ```
 
-`bower.json` tells bower to fetch the newest release of UIkit. That way you can always run `bower install` to fetch the current LESS source files from UIkit:
+*bower.json* говорит Bower получать новые версии UIkit. В таком случае, вы всегда можете использовать `bower install` для получения текущих LESS файлов от UIkit:
 
-```js
+*bower.json*
+
+```json
 {
 	"name": "theme-hello",
 	"dependencies": {
@@ -121,38 +125,43 @@ In your theme, create the new files `package.json`, `bower.json`, `.bowerrc`, `g
 }
 ```
 
-`.bowerrc` includes configuration settings for bower. By default, bower installs everything in a directory called `/bower_components` inside the theme directory. Simply out of preference, we change that default directory:
+*.bowerrc* подключает настройки конфигурации для Bower. По умолчанию, Bower устанавливает всё в директорию */bower_components* внутри директории темы. Давайте изменим эту дефолтную директорию:
 
-```js
+*.bowerrc*
+
+```json
 {
     "directory": "app/assets"
 }
 ```
 
-`gulpfile.js` contains all tasks which we can run using Gulp. We only need a task to compile LESS to CSS. For convenience we also add a `watch` task that can be run to automatically recompile LESS when any changes to the files have been detected:
+*gulpfile.js* содержит все задачи, которые мы можем запускать используя Gulp. Нам нужна только задача для компиляции LESS в CSS. Для удобства мы также добавим задачу `watch`, которая будет автоматически запускать перекомпиляцию LESS при любых изменениях в файлах с расширением _*.less_ внутри директории *less/*:
+
+*gulpfile.js*
 
 ```js
-var gulp       = require('gulp'),
-    less       = require('gulp-less'),
-    rename     = require('gulp-rename');
+var gulp = require('gulp'),
+	less = require('gulp-less'),
+	rename = require('gulp-rename');
 
 	gulp.task('default', function () {
-	    return gulp.src('less/theme.less', {base: __dirname})
-	        .pipe(less({compress: true}))
-	        .pipe(rename(function (file) {
-	            // the compiled file should be stored in the css/ folder instead of the less/ folder
-	            file.dirname = file.dirname.replace('less', 'css');
-	        }))
-	        .pipe(gulp.dest(__dirname));
-    });
-
-	gulp.task('watch', function () {
-	    gulp.watch('less/*.less', ['default']);
+		return gulp.src('less/theme.less', {base: __dirname})
+			.pipe(less({compress: true}))
+			.pipe(rename(function (file) {
+				// the compiled file should be stored in the css/ folder instead of the less/ folder
+				file.dirname = file.dirname.replace('less', 'css');
+			}))
+			.pipe(gulp.dest(__dirname));
 	});
 
+	gulp.task('watch', function () {
+		gulp.watch('less/*.less', ['default']);
+	});
 ```
 
-`less/theme.less` is the place where you store your theme's styles. Mind that you first need to import UIkit so that it is also compiled by the Gulp task we have defined above.
+*less/theme.less* это место где будут храниться все стили темы. В первую очередь нам нужно импортировать UIkit, который также скомпилируется при помощи задачи Gulp, которую мы определили выше.
+
+*less/theme.less*
 
 ```less
 @import "uikit/uikit.less";
@@ -163,7 +172,12 @@ var gulp       = require('gulp'),
 // your theme styles will follow here...
 ```
 
-`.gitignore` is an optional file that is useful when you manage your code using Git. In Hello theme, a version of the file already exists. You can add new entries so that it looks as follows. You probably don't want to commit the downloaded packages by bower and the generated CSS. Just make sure to include the generated CSS when you upload the theme to your server or the Pagekit Marketplace.
+*.gitignore* - это не объязательный файл, который будет нам полезен, когда вы будете хранить историю изменений с помощью Git.
+
+
+В теме Hello, уже существует версионность файлов. Вы можете добавить новые точки изменений, поэтому это будет выглядеть как продолжение. Возможно вы не захотите коммитить скачанные пакеты с помощью Bower и генерируемые CSS. Только будьте уверенными что включаете сгенерируемые CSS, когда будете загружать данную тему на ваш сервер или на Marketplace Pagekit.
+
+*.gitignore*
 
 ```txt
 /app/bundle/*
