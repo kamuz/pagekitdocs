@@ -189,19 +189,17 @@ var gulp = require('gulp'),
 *.zip
 ```
 
-#### Step 2
+#### Шаг №2
 
- After you have created the files above, go to the [UIkit Github repository](https://github.com/uikit/uikit), download the Zip, unpack it and find the `themes/default` folder (or one of the other themes, if you like). Note that you need the Github version for this, not the css-only version we have downloaded in the simple setup.
+После создания файлов конфигурации, перейдите на [UIkit Github репозиторий](https://github.com/uikit/uikit) и скачайте и распакуйте zip архив, после чего найдите папку *theme/default* (или другую тему, если пожелаете). Обратите внимание что вам нужна именно GitHub версия для этого, а не просто CSS версия, которую мы скачивали для простой установки.
 
-![Download UIkit from Github](assets/tutorial-theme-download-uikit.png)
+#### Шаг №3
 
-#### Step 3
+Создайте папку */less* внутри вашей темы, скопируйте и вставьте сюда папку темы *default/* и переименуйте её в *uikit/*, чтобы она находилась в *less/uikit/* внутри папки с вашей темой.
 
-Create a `/less` folder inside your theme, copy and paste the `default` theme folder in there and rename it to `/uikit`, so that it is located at `less/uikit` inside your theme folder.
+#### Шаг №4
 
-#### Step 4
-
-The style we just copied needs to import the core UIkit LESS, so that it can be compiled successfully. To make this possible, you need to update the import path in your theme's `less/uikit/uikit.less` file. Make sure to change the import in line 4 to the following path: `@import "../../app/assets/uikit/less/uikit.less";`
+В файле стилей мы просто импортировали ядро LESS UIKit, так что теперь оно может быть успешно скомпилировано. Для этого вам необходимо обновить путь импорта в файле вашей темы `less/uikit/uikit.less`. Убедитесь в том, что на 4 строке вы изменили путь к импортируемого файла: `@import "../../app/assets/uikit/less/uikit.less";`.
 
 #### Step 5
 
