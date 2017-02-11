@@ -2,11 +2,11 @@
 
 <p class="uk-article-lead">Это учебное пособие научит вас как создавать собственную тему на основе нашей заготовки темы Hello Theme. Вы узнаете о структуре темы и следуя необходимым шагам добавите новые опции и позиции в теме.</p>
 
-**Примечание** Завершённая тема [находится на Github](https://github.com/pagekit/example-theme).
+<div class="uk-badge">Внимание</div> Завершённая тема [находится на Github](https://github.com/pagekit/example-theme).
 
 ## Начало работы
 
-Перед началом обучения, мы предполагаем что у вас уже установлена Pagekit на локальном сервере, а если это не так, то вам нужно, [скачать](https://pagekit.com/download) пакет инсталятора Pagekit и [установить](../getting-started/installation.md) её. После чего зайдите в панель администратора в раздел *System / Theme*, который интегрирован с Marketplace.
+Перед началом обучения, мы предполагаем что у вас уже установлена Pagekit на локальном сервере, а если это не так, то вам нужно, [скачать](https://pagekit.com/download) пакет инсталятора Pagekit и [установить](getting-started/installation) её. После чего зайдите в панель администратора в раздел *System / Theme*, который интегрирован с Marketplace.
 
 [Hello Theme](https://pagekit.com/marketplace/package/pagekit/theme-hello) - является шаблоном-заготовкой для разработки будущих тем, которая включает примеры кода и общую основу чтобы помочь вам начать работу.
 
@@ -201,44 +201,41 @@ var gulp = require('gulp'),
 
 В файле стилей мы просто импортировали ядро LESS UIKit, так что теперь оно может быть успешно скомпилировано. Для этого вам необходимо обновить путь импорта в файле вашей темы `less/uikit/uikit.less`. Убедитесь в том, что на 4 строке вы изменили путь к импортируемого файла: `@import "../../app/assets/uikit/less/uikit.less";`.
 
-#### Step 5
+#### Шаг №5
 
-Open your theme in a new console tab (for example `cd pagekit/packages/theme-hello`) and run `npm install`, `bower install` and `gulp`.
+Откройте вашу тему в новой вкладке консоли/терминала (например `cd pagekit/packages/theme-hello`) и запустите `npm install`, `bower install` и `gulp`.
 
-Now, that were quite a few steps. Make sure your file structure looks as follows now (plus additional theme files that were there before):
+Сейчас мы уже проделали несколько шагов. Вам нужно убедиться в том, что файловая структура у вас имеет следующий вид (плюс дополнительные файлы темы):
 
-```
-app/
-    assets/
-        jquery/    result of bower install
-        uikit/     result of bower install
-css/
-    theme.css      result of gulp
-less/
-    uikit/
-        ... uikit components
-    	uikit.less
-    theme.less
-node_modules/      result of npm install
-.bowerrc
-bower.json
-gulpfile.js
-package.json
-... other theme files
-```
+* *app/*
+	* *assets/* - загруженные библиотеки - результат команды `bower install`
+		* *jquery/*
+		* *uikit/*
+* *css/*
+	* *theme.css* - скомпилированный файл CSS - результат команды `gulp`
+* *less/*
+	* *uikit/*
+		* ... uikit компоненты
+		* *uikit.less*
+	* *theme.less*
+* *node_modules/* - модули Node.js - результат команды `npm install`
+* *.bowerrc*
+* *bower.json*
+* *gulpfile.js*
+* *package.json*
+* ... другие файлы темы
 
-With this file setup in place, we have now achieved the following:
+С помощью вышеуказанных команд и данной файловой структуры мы достигнули следующего:
 
-- **Separation** of theme styles and UIkit customizations. Add your own styles in `less/theme.less`, customize UIkit in `less/uikit/*`
-- **Easily customize UIkit**: Every UIkit component's settings are located in its own `*.less` file. For example, to change the body font size, open `less/uikit/base.less` and change the value of `@base-body-font-size`, then re-run `gulp`. To use any of the [UIkit add-on components](http://getuikit.com/docs/components.html), open `less/uikit.less` and import the add-on's less file from the `app/assets` directory, for example for the slideshow, add the line: `@import "../../app/assets/uikit/less/components/slideshow.less";` and re-run `gulp.`
-- **Easily update UIkit**: Run `bower install` to fetch the newest version of UIkit and run `gulp` to re-compile your LESS files to CSS.
-
+- **Разделения** файлов стилей темы и кастомизации UIKit. Добавляейте свои собственные стили в *less/theme.less* и выполняйте кастомизацию UIKit в *less/uikit/*
+- **Упрощённой настройки UIKit** - настройки каждого UIKit компонента находятся в своем собственном _*.less_ файле. Например, чтобы изменить размер шрифта для `body`, откройте *less/uikit/base.less* и измените значение`@base-body-font-size`, а затем повторно запустить `gulp`. Для использования каких-либо из [дополнительных UIKit компонентов](http://getuikit.com/docs/components.html), откройте *less/uikit.less* и импортируйте дополнительный LESS файл из директории *app/assets*, например, для слайд-шоу (slideshow), добавьте строку: `@import "../../app/assets/uikit/less/components/slideshow.less";` и повторно запустите `gulp.`
+- **Вы можете легко обновлять UIKit**: Выполните команду `bower install`, чтобы получить последнюю версию UIKit и запустите команду `gulp` для перекомпиляции ваших LESS файлов.
 
 ## Adding JavaScript
 
 Included in Hello theme, you will find an empty JavaScript file `js/script.js`. Here, you can add your own JavaScript code. In Hello Theme, the file is loaded because it is already included in the `template.php` as follows:
 
-```
+```php
 <?php $view->script('theme', 'theme:js/theme.js') ?>
 ```
 
