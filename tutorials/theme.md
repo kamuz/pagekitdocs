@@ -231,23 +231,23 @@ var gulp = require('gulp'),
 - **Упрощённой настройки UIKit** - настройки каждого UIKit компонента находятся в своем собственном _*.less_ файле. Например, чтобы изменить размер шрифта для `body`, откройте *less/uikit/base.less* и измените значение`@base-body-font-size`, а затем повторно запустить `gulp`. Для использования каких-либо из [дополнительных UIKit компонентов](http://getuikit.com/docs/components.html), откройте *less/uikit.less* и импортируйте дополнительный LESS файл из директории *app/assets*, например, для слайд-шоу (slideshow), добавьте строку: `@import "../../app/assets/uikit/less/components/slideshow.less";` и повторно запустите `gulp.`
 - **Вы можете легко обновлять UIKit**: Выполните команду `bower install`, чтобы получить последнюю версию UIKit и запустите команду `gulp` для перекомпиляции ваших LESS файлов.
 
-## Adding JavaScript
+## Добавление JavaScript
 
-Included in Hello theme, you will find an empty JavaScript file `js/script.js`. Here, you can add your own JavaScript code. In Hello Theme, the file is loaded because it is already included in the `template.php` as follows:
+В теме Hello, вы найдёте пустой JavaScript файл *js/script.js*. Сюда вы можете добавлять ваш собственный JavaScript код. В теме Hello этот файл загружается потому что он уже подключён в *template.php*:
 
 ```php
 <?php $view->script('theme', 'theme:js/theme.js') ?>
 ```
 
-When including a script, it needs a unique identifier (`theme`) and the path to the script file (`theme:js/theme.js`). As you can see, you can use `theme:` as a short version for the file path to your theme directory. To add more JavaScript files, simply add more lines in the same way. Make sure to assign different identifier to the scripts. If you would call all of them `theme`, only the last one will be included.
+Когда вы подключаете скрипт, требуется уникальный идентификатор (`theme`) и путь к файлу скрипта (`theme:js/theme.js`). Как видете, вы можете использовать `theme:` в качестве короткой версии файлового пути к директории темы. Чтобы добавить больше JavaScript файлов, просто добавьте несколько строк таким же образом. Убедитесь в том, что вы назначили другие идентификаторы для скриптов. Если бы вы назвали их все `theme`, то будет подключён только последний.
 
-```
+```php
 <?php $view->script('theme', 'theme:js/theme.js') ?>
 <?php $view->script('plugins', 'theme:js/plugins.js') ?>
 <?php $view->script('slideshow', 'theme:js/slideshow.js') ?>
 ```
 
-While adding multiple `script()` calls is the simplest way to include JavaScript, the `script()` helper allows for way more powerful ways to include JavaScript files which can also depend on each other. Let us look at that in more depth in the next sections.
+В то время как добавление нескольких вызовов `script()` - это самый простой способ, чтобы подключить JavaScript, при этом хелпер `script()` предоставляет более мощные способы подключения файлов JavaScript, которые также могут зависеть друг от друга. Более подробно об этом в следующих разделах.
 
 ### Adding multiple JavaScript files with dependencies
 
