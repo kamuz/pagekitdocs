@@ -267,23 +267,19 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 
 Как вы уже могли видеть в выше приведенном примере, зависимости ссылаются, используя уникальный строковый идентификатор (например, `theme-jquery`). В нашем примере этот идентификатор дается скрипту в тот момент, когда он подключается с помощью метода `script()`. Как видите, этот метод принимает три параметра: `$view->script($identifier, $path_to_script, $dependencies)`.
 
-Для того, чтобы убедиться что это работает, откройте `views/template.php` и добавьте следующие строки (`data-uk-*`является префиксом для JavaScript компонентов в UIKit).
+Для того, чтобы убедиться что это работает, откройте `views/template.php` и добавьте следующие строки (`data-uk-*` является префиксом для JavaScript компонентов в UIKit).
 
 ```html
 <!-- ADD id="up" to body -->
 <body id="up">
-
 	<!-- LEAVE existing content ... -->
 	...
-
 	<!-- ADD to-top-scroller -->
 	<div class="uk-text-center">
-       <a href="#up" data-uk-smooth-scroll=""><i class="uk-icon-caret-up"></i></a>
-    </div>
-
+		<a href="#up" data-uk-smooth-scroll=""><i class="uk-icon-caret-up"></i></a>
+	</div>
 	<!-- LEAVE rendering of footer section  -->
-    <?= $view->render('footer') ?>
-
+	<?= $view->render('footer') ?>
 </body>
 ```
 
