@@ -249,27 +249,27 @@ var gulp = require('gulp'),
 
 В то время как добавление нескольких вызовов `script()` - это самый простой способ, чтобы подключить JavaScript, при этом хелпер `script()` предоставляет более мощные способы подключения файлов JavaScript, которые также могут зависеть друг от друга. Более подробно об этом в следующих разделах.
 
-### Adding multiple JavaScript files with dependencies
+### Добавление несколько JavaScript файлов с зависимостями
 
-In the earlier examples we have now worked with CSS from UIkit. If you also want to use UIkit's JavaScript components and utilities, it makes sense to add the UIkit JavaScript files. Note that UIkit requires loading jQuery before you can use the UIkit JavaScript components.
+В ранее описанных примерах мы не работали с CSS из UIkit. Если вы хотите использовать UIkit JavaScript компоненты и утилиты, имеет смысл добавить UIkit JavaScript файлы. Обратите внимание, что UIkit требует загрузки jQuery перед использованием UIkit JavaScript компонентов.
 
 Locate the previous line `script('theme', ...)` in the head of `views/template.php` and replace it with the following three lines.
 
-```
+```php
 <?php $view->script('theme-jquery', 'theme:app/assets/jquery/dist/jquery.min.js') ?>
 <?php $view->script('theme-uikit', 'theme:app/assets/uikit/js/uikit.min.js', 'theme-jquery') ?>
 <?php $view->script('theme', 'theme:js/theme.js', 'theme-uikit') ?>
 ```
 
-This example assumes you have used the advanced setup from above, where bower has installed both UIkit and jQuery into the `app/assets` folder. If you are working with a simpler setup instead, just download and copy `jquery.min.js` and `uikit.min.js` to some place in your theme and change the paths in the example accordingly.
+Этот пример предполагает чтобы вы используете настройки выше, где Bower установил UIkit и jQuery в папку *app/assets/*. Если вместо этого вы использовали простую установку, просто скачайте и скопируйте *jquery.min.js* и *uikit.min.js* в определённое место в вашей темы и измените к ним пути.
 
-Note how we now add a third parameter, which defines _dependencies_ of the script that we are loading. Dependencies are other JavaScript files that have to be loaded earlier. So in the example, Pagekit will definitely make sure to load the three files in the following order: jQuery, UIkit and then our own `theme.js`. In this specific example, this mechanism does not seem very useful, because the scripts will probably be loaded in exactly the order that we put them in the `template.php`, right? That is correct, but imagine these lines being located in different files and sub-templates of your theme. Defining dependencies will make sure that Pagekit always loads the files in a correct order.
+Обратите внимание, как теперь мы добавляем третий параметр, который определяет зависимости скрипта, который мы загружаем. Зависимости - это другие JavaScript файлы, которые должны быть загружены ранее. Таким образом, в данном примере, Pagekit будет загружать данные три файла в следующем порядке: jQuery, UIKit, а затем наш *theme.js*. В данном конкретном примере, этот механизм не кажется очень полезным, потому что скрипты, вероятно, будут загружены точно в том порядке, в котором мы поместили их в `template.php`, не так ли? Но, представьте себе, данные строки расположены в разных файлах и суб-шаблонах вашей темы. Поэтому, определяя зависимости убедитесь в том, что Pagekit всегда загружает файлы в правильном порядке.
 
-As you can already see in the example above, dependencies are referenced using the unique string identifier (e.g. `theme-jquery`). In our example, this identifier is given to the script the first time it is included using the `script()` method. So, as you have seen now, this method takes three parameters: `$view->script($identifier, $path_to_script, $dependencies)`.
+Как вы уже могли видеть в выше приведенном примере, зависимости ссылаются, используя уникальный строковый идентификатор (например, `theme-jquery`). В нашем примере этот идентификатор дается скрипту в тот момент, когда он подключается с помощью метода `script()`. Как видите, этот метод принимает три параметра: `$view->script($identifier, $path_to_script, $dependencies)`.
 
-To confirm this has worked, open `views/template.php` and add the following lines (`data-uk-*` is the prefix for UIkit's JavaScript components).
+Для того, чтобы убедиться что это работает, откройте `views/template.php` и добавьте следующие строки (`data-uk-*`является префиксом для JavaScript компонентов в UIKit).
 
-```
+```html
 <!-- ADD id="up" to body -->
 <body id="up">
 
@@ -287,7 +287,7 @@ To confirm this has worked, open `views/template.php` and add the following line
 </body>
 ```
 
-When you refresh the browser, you will see a small arrow that you can use to smoothly scroll to the top of the browser window. If the browser does not scroll smoothly, but jumps immediately, please check if you have written everything exactly as in the examples.
+При обновлении браузера, вы увидите небольшую стрелку, которую можно использовать для плавного перехода к верхней части окна браузера. Если браузер не прокручивается плавно, а вместо этого резко перемещается вверх, пожалуйста проверьте что вы все написали также как и в примерах.
 
 ### Adding third party scripts, like jQuery
 
