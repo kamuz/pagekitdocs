@@ -285,19 +285,20 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 
 При обновлении браузера, вы увидите небольшую стрелку, которую можно использовать для плавного перехода к верхней части окна браузера. Если браузер не прокручивается плавно, а вместо этого резко перемещается вверх, пожалуйста проверьте что вы все написали также как и в примерах.
 
-### Adding third party scripts, like jQuery
+### Добавление сторонних скриптов, например jQuery
 
-You may ask yourself why we called the included jQuery script `theme-jquery` and not simply `jquery`. In general, it is always useful to prefix your own identifiers, to avoid collisions with other extensions. However, in this specific example, the identifiers `jquery` and `uikit` are already taken, because Pagekit itself includes jQuery and UIkit. This means that you can already load these JavaScript files without including them in your theme. That way, all themes and extensions can share a single version of jQuery (and UIkit, if they use UIkit) to avoid conflicts.
+Вы возможно спрашиваете себя, зачем нам вызывать подключёнение jQuery с помощью `theme-jquery`, а не просто `jquery`. Обычно, полезно всегда добавлять префикс к вашим идентификаторам, чтобы избежать конфликтов с другими расширениями. В тоже время, в этом определённом примере, идентификаторы `jquery` и `uikit` уже заняты, потому что Pagekit изначально подключает jQuery и UIkit. Это означает что вы можете загружать эти JavaScript файлы без подлючения их вашей теме. Таким образом, все темы и расширения могут совместно использовать одну версию jQuery (и UIkit, если они используют UIkit) не беспокоясь о конфиктах.
 
-```
+```php
 <?php $view->script('theme', 'theme:js/theme.js', ['uikit', 'jquery']) ?>
 ```
 
-As you can see in the example, the third parameter of the `script()` method can also take a list of multiple dependencies. In the earlier example we have only passed in a single string (for example `theme-jquery`). Pass in a string for a single dependency, or a list for multiple depencies — both are possible.
+Как видите, в этом примере, третим параметром метода `script()` можно передать несколько зависимостей. В выше приведённом примере, мы передавали только одну строку (например `theme-jquery`). Таким образом вы можете передавать одну или несколько зависимостей.
 
-The currently loaded version of jQuery and UIkit depend on the current version of Pagekit. With new releases of Pagekit, the versions of these libraries will continually be updated. While this allows for always having a current version available, a potential downside would be that you need to make sure your code also works for the new versions of these libraries.
+На текущий момент, загруженные версии jQuery и UIkit зависят от текущей версии Pagekit. С новыми релизами Pagekit, версии этих библиотек будут постоянно обновляться.
 
 ## Layout
+
 The central files for your theme's layout are `views/template.php` and `index.php`. The actual rendering happens in the `template.php`.
 
 When you open the `template.php`, you see a very basic setup for you to get started. Let's wrapping a container around our main content and divide the system output and sidebar into a grid.
