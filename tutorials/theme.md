@@ -431,3 +431,21 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 </ul>
 <?php endif ?>
 ```
+
+#### Шаг #03
+
+Для отображения текущего меню в файле *template.php*, создайте элемент `<nav>` и добавьте класс `.uk-navbar`. Подключите файл *menu-navbar.php* внутри данного элемента с помощью (вы можете удалить существующий блок, где рендерится `$view->menu('main')`).
+
+```html
+<nav class="uk-navbar">
+
+    <?php if ($view->menu()->exists('main')) : ?>
+    <div class="uk-navbar-flip">
+        <?= $view->menu('main', 'menu-navbar.php') ?>
+    </div>
+    <?php endif ?>
+
+</nav>
+```
+
+Основное меню теперь будет автоматически отображаться в новой позиции `Navbar`.
