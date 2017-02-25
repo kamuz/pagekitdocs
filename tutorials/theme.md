@@ -393,7 +393,7 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 
 Используя концепцию модульности, Pagekit отображает позиции элементов макета в разных файлах. Для навигации, создайте файл *views/menu-navbar.php*, содержащий следующее:
 
-```html
+```php
 <?php if ($root->getDepth() === 0) : ?>
 <ul class="uk-navbar-nav">
 <?php endif ?>
@@ -436,7 +436,7 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 
 Для отображения текущего меню в файле *template.php*, создайте элемент `<nav>` и добавьте класс `.uk-navbar`. Подключите файл *menu-navbar.php* внутри данного элемента с помощью (вы можете удалить существующий блок, где рендерится `$view->menu('main')`).
 
-```html
+```php
 <nav class="uk-navbar">
 
     <?php if ($view->menu()->exists('main')) : ?>
@@ -449,3 +449,31 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 ```
 
 Основное меню теперь будет автоматически отображаться в новой позиции `Navbar`.
+
+#### Шаг #04
+
+Вы возможно захотите чтобы ваш логотип появлялся внутри навигационной панели. Чтобы обернуть элемент `<nav>` вокруг логотипа, а также добавить класс `.uk-navbar-brand`, следует применить соответвующий интервал.
+
+Вы, вероятно, также хотят, чтобы логотип появляться внутри навигационной панели. Так обернуть `` элемент <нав> вокруг логотипа, а также и добавить класс `.uk-Navbar-brand`, чтобы применить соответствующий интервал.
+
+
+```php
+<nav class="uk-navbar">
+
+    <!-- Render logo or title with site URL -->
+    <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
+        <?php if ($logo = $params['logo']) : ?>
+            <img src="<?= $this->escape($logo) ?>" alt="">
+        <?php else : ?>
+            <?= $params['title'] ?>
+        <?php endif ?>
+    </a>
+
+    <?php if ($view->menu()->exists('main')) : ?>
+    <div class="uk-navbar-flip">
+        <?= $view->menu('main', 'menu-navbar.php') ?>
+    </div>
+    <?php endif ?>
+
+</nav>
+```
