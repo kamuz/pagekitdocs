@@ -477,3 +477,9 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 
 </nav>
 ```
+
+### Добавление опции темы
+
+Pagekit использует [Vue.js](https://vuejs.org/) для создания интерфейса админки. Здесь [видеоуроки](https://youtu.be/3gPGyhTroSA?list=PL2rU5GxE-MQ7aYIcxTmDh4-BTHRM-9lto) по Vue.js в Pagekit.
+
+Часто требуеться зафиксировать навигационную панель в верхней части окна браузера при скроллинге сайта вниз. Далее, мы собираемся добавить это в качестве опции для нашей темы.
