@@ -457,7 +457,7 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 Вы, вероятно, также хотят, чтобы логотип появляться внутри навигационной панели. Так обернуть `` элемент <нав> вокруг логотипа, а также и добавить класс `.uk-Navbar-brand`, чтобы применить соответствующий интервал.
 
 
-```php
+```html
 <nav class="uk-navbar">
 
     <!-- Render logo or title with site URL -->
@@ -483,3 +483,35 @@ Locate the previous line `script('theme', ...)` in the head of `views/template.p
 Pagekit использует [Vue.js](https://vuejs.org/) для создания интерфейса админки. Здесь [видеоуроки](https://youtu.be/3gPGyhTroSA?list=PL2rU5GxE-MQ7aYIcxTmDh4-BTHRM-9lto) по Vue.js в Pagekit.
 
 Часто требуеться зафиксировать навигационную панель в верхней части окна браузера при скроллинге сайта вниз. Далее, мы собираемся добавить это в качестве опции для нашей темы.
+
+#### Шаг #01
+
+Сначала вам нужно создать папку и файл *app/components/site-theme.vue*. Настройки, сохраненные в этом файле влияют на весь веб-сайт и их можно найти во вкладке *Settings / Theme*.
+
+В только что созданном файле `site-theme.vue` мы добавим опцию, которая будет отображаться в администраторской панели Pagekit.
+
+```html
+<template>
+
+    <div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin>
+        <div data-uk-margin>
+            <h2 class="uk-margin-remove">{{ 'Theme' | trans }}</h2>
+        </div>
+        <div data-uk-margin>
+            <button class="uk-button uk-button-primary" type="submit">{{ 'Save' | trans }}</button>
+        </div>
+    </div>
+
+    <div class="uk-form uk-form-horizontal">
+
+        <div class="uk-form-row">
+            <label for="form-navbar-mode" class="uk-form-label">{{ 'Navbar Mode' | trans }}</label>
+            <p class="uk-form-controls-condensed">
+                <label><input type="checkbox" v-model="config.navbar_sticky"> {{ 'Sticky Navigation' | trans }}</label>
+            </p>
+        </div>
+
+    </div>
+
+</template>
+```
